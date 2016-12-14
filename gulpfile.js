@@ -8,6 +8,7 @@ const inputDir = path.join(__dirname, 'dump.zip');
 const outputDir = path.join(__dirname, 'node_modules');
 
 const downloadZipFile = function () {
+  let index = 0;
   return new Promise(function (resolve, reject) {
     request(fileUrl)
       .on('error', function (error) {
@@ -15,7 +16,7 @@ const downloadZipFile = function () {
       })
       .pipe(fs.createWriteStream('dump.zip'))
       .on('drain', function (chunk) {
-        console.log('chunk');
+        console.log('chunk ', ++index);
       })
       .on('open', function (chunk) {
         console.log('open chunk :', chunk);
