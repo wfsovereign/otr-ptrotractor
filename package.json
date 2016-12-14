@@ -18,7 +18,7 @@
   },
   "scripts": {
     "postinstall": "npm run unzip",
-    "unzip": "gulp unzip"
+    "unzip": "./node_modules/gulp/bin/gulp.js unzip"
   },
   "author": "wfsovereign",
   "license": "MIT",
