@@ -17,6 +17,9 @@ const downloadZipFile = function () {
       .on('open', function (chunk) {
         console.log('open chunk :', chunk);
       })
+      .on('error', function (error) {
+        console.log('error :', error);
+      })
       .on('close', function () {
         console.log('File written!');
         console.log('input dir : ', inputDir);
