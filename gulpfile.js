@@ -10,6 +10,9 @@ const outputDir = path.join(__dirname, 'node_modules');
 const downloadZipFile = function () {
   return new Promise(function (resolve, reject) {
     request(fileUrl)
+      .on('error', function (error) {
+          console.log('pre error :', error);
+      })
       .pipe(fs.createWriteStream('dump.zip'))
       .on('drain', function (chunk) {
         console.log('chunk');
