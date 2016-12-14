@@ -7,32 +7,11 @@ const downloadZipFile = function () {
   return new Promise(function (resolve, reject) {
     request(fileUrl)
       .pipe(fs.createWriteStream('dump.zip'))
-      .on('line', function (chunk) {
-        console.log('chunk: ', chunk);
-      })
-      .on('pipe', function (chunk) {
-          console.log('pipe chunk :', chunk);
-      })
-      .on('unpipe', function (chunk) {
-          console.log('unpipe chunk :', chunk);
-      })
       .on('drain', function (chunk) {
-          console.log('chunk :', chunk);
+          console.log('chunk');
       })
       .on('open', function (chunk) {
           console.log('open chunk :', chunk);
-      })
-      .on('data', function (chunk) {
-          console.log(chunk);
-      })
-      .on('SIGONT', function (chunk) {
-          console.log(chunk);
-      })
-      .on('SIGINT', function (chunk) {
-          console.log(chunk);
-      })
-      .on('SIGTSTP', function (chunk) {
-          console.log(chunk);
       })
       .on('close', function () {
         console.log('File written!');
