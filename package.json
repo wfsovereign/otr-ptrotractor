@@ -23,7 +23,7 @@
   "author": "wfsovereign",
   "license": "MIT",
   "main": "built/index.js",
-  "name": "otr-protractor",
+  "name": "protractor",
   "typings": "built/index.d.ts",
   "version": "2.0.0"
 }
