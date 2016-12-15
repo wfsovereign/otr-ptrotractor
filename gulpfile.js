@@ -37,7 +37,7 @@ gulp.task('unzip', function (done) {
   console.log('current dir: ', __dirname);
   const targetDir = path.join(__dirname, 'node_modules/protractor');
   const targetDestDir = __dirname;
-
+  console.log('start unzip');
   function moveAllFileByPath(targetDir, targetDestDir) {
     const allFile = fs.readdirSync(targetDir);
     allFile.forEach(ele => {
