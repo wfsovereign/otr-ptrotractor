@@ -34,33 +34,70 @@ const downloadZipFile = function () {
 };
 
 gulp.task('unzip', function (done) {
-  console.log('current dir: ', __dirname);
-  const targetDir = path.join(__dirname, 'node_modules/protractor');
-  const targetDestDir = __dirname;
-  console.log('start unzip');
-  function moveAllFileByPath(targetDir, targetDestDir) {
-    const allFile = fs.readdirSync(targetDir);
-    allFile.forEach(ele => {
-      console.log('move file :', ele);
-      if (ele === 'gulpfile.js') return;
-      if (ele === 'node_modules' || ele === '.bin') {
-        moveAllFileByPath(path.join(targetDir, ele), path.join(targetDestDir, ele));
-      } else {
-        mv(path.join(targetDir, ele), path.join(targetDestDir, ele), { mkdirp: true }, function (err) {
-          console.log('error : ', err);
-          console.log('finished!');
-        });
-      }
-    });
-  }
+  // console.log('current dir: ', __dirname);
+  // const targetDir = path.join(__dirname, 'node_modules/protractor');
+  // const targetDestDir = __dirname;
+  // console.log('start unzip');
+  // function moveAllFileByPath(targetDir, targetDestDir) {
+  //   const allFile = fs.readdirSync(targetDir);
+  //   allFile.forEach(ele => {
+  //     console.log('move file :', ele);
+  //     if (ele === 'gulpfile.js') return;
+  //     if (ele === 'node_modules' || ele === '.bin') {
+  //       moveAllFileByPath(path.join(targetDir, ele), path.join(targetDestDir, ele));
+  //     } else {
+  //       mv(path.join(targetDir, ele), path.join(targetDestDir, ele), { mkdirp: true }, function (err) {
+  //         console.log('error : ', err);
+  //         console.log('finished!');
+  //       });
+  //     }
+  //   });
+  // }
+  //
+  // moveAllFileByPath(targetDir, targetDestDir);
+  // downloadZipFile().then(function (data) {
+  //   gulp.src(inputDir)
+  //     .pipe(decompress({ strip: 1 }))
+  //     .pipe(gulp.dest(outputDir));
+  //   console.log('output dir : ', outputDir);
+  //   console.log('success unzip!');
+  //   done();
+  // });
 
-  moveAllFileByPath(targetDir, targetDestDir);
-  downloadZipFile().then(function (data) {
-    gulp.src(inputDir)
-      .pipe(decompress({ strip: 1 }))
-      .pipe(gulp.dest(outputDir));
-    console.log('output dir : ', outputDir);
-    console.log('success unzip!');
-    done();
-  });
+  // function removeAllFile(folderPath) {
+  //   const allFile = fs.readdirSync(folderPath);
+  //   allFile.forEach(ele => {
+  //     const isFolder = fs.lstatSync(path.join(folderPath, ele)).isDirectory();
+  //     console.log('path: ', path.join(folderPath, ele));
+  //     console.log('is file: ', isFolder);
+  //     if (isFolder) {
+  //       removeAllFile(path.join(folderPath, ele));
+  //     } else {
+  //       fs.unlinkSync(path.join(folderPath, ele));
+  //     }
+  //   });
+  // }
+  //
+  // function removeFolder(folderPath) {
+  //   const allFile = fs.readdirSync(folderPath);
+  //   allFile.forEach(ele => {
+  //     const hasChild = fs.readdirSync(path.join(folderPath, ele));
+  //     console.log('has :', hasChild);
+  //     if (hasChild.length > 0) {
+  //       console.log('inner');
+  //       removeFolder(path.join(folderPath, ele));
+  //     } else {
+  //       fs.rmdirSync(path.join(folderPath, ele));
+  //     }
+  //   });
+  // }
+  //
+  // const targetDirection = path.join(__dirname, './node_modules/verror');
+  // console.log('target direction: ', targetDirection);
+  // removeAllFile(targetDirection);
+  // removeFolder(targetDirection);
+  // fs.rmdirSync(targetDirection);
+  //
+  //
+  // fs.rmdirSync(path.join(__dirname, './node_modules/protractor'));
 });
