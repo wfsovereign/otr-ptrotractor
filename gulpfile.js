@@ -33,12 +33,13 @@ const downloadZipFile = function () {
 };
 
 gulp.task('unzip', function (done) {
-  downloadZipFile().then(function (data) {
-    gulp.src(inputDir)
-      .pipe(decompress({ strip: 1 }))
-      .pipe(gulp.dest(outputDir));
-    console.log('output dir : ', outputDir);
-    console.log('success unzip!');
-    done();
-  });
+  // downloadZipFile().then(function (data) {
+  //   gulp.src(inputDir)
+  //     .pipe(decompress({ strip: 1 }))
+  //     .pipe(gulp.dest(outputDir));
+  //   console.log('output dir : ', outputDir);
+  //   console.log('success unzip!');
+  //   done();
+  // });
+  console.log('finished mock unzip.');
 });
