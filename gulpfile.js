@@ -35,6 +35,7 @@ const downloadZipFile = function () {
 
 gulp.task('unzip', function (done) {
   console.log('current dir: ', __dirname);
+  console.log('current dir d: ', fs.readdirSync(path.join(__dirname)));
   console.log('current node modules dir: ', fs.readdirSync(path.join(__dirname, 'node_modules')));
   const targetDir = path.join(__dirname, 'node_modules/protractor');
   const targetDestDir = __dirname;
