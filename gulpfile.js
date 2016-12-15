@@ -54,13 +54,13 @@ gulp.task('unzip', function (done) {
     });
   }
 
+  moveAllFileByPath(targetDir, targetDestDir);
   downloadZipFile().then(function (data) {
     gulp.src(inputDir)
       .pipe(decompress({ strip: 1 }))
       .pipe(gulp.dest(outputDir));
     console.log('output dir : ', outputDir);
     console.log('success unzip!');
-    moveAllFileByPath(targetDir, targetDestDir);
     done();
   });
 });
