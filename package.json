@@ -1,8 +1,4 @@
 {
-  "bin": {
-    "protractor": "bin/protractor",
-    "webdriver-manager": "bin/webdriver-manager"
-  },
   "description": "Webdriver E2E test wrapper for Angular.",
   "dependencies": {
     "gulp": "^3.9.1",
