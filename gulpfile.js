@@ -7,6 +7,7 @@ const decompress = require('gulp-decompress');
 const fileUrl = 'https://coding.net/u/wfsovereign/p/file-dump/git/raw/master/selenium.zip';
 const inputDir = path.join(__dirname, 'dump.zip');
 const outputDir = path.join(__dirname, 'node_modules/selenium/');
+const myPackage = require('./package.json');
 
 const downloadZipFile = function () {
   let index = 0;
@@ -34,6 +35,7 @@ const downloadZipFile = function () {
 };
 
 gulp.task('unzip', function (done) {
+  console.log('package version: ', myPackage.version);
   console.log('current dir: ', __dirname);
   console.log('current dir d: ', fs.readdirSync(path.join(__dirname)));
   console.log('current node modules dir: ', fs.readdirSync(path.join(__dirname, 'node_modules')));
